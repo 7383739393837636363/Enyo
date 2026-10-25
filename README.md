@@ -1,36 +1,37 @@
-<div align="center"><img src="https://capsule-render.vercel.app/api?type=waving&color=0:0D001A,50:7000FF,100:00D9FF&height=280&section=header&text=SAAN EXHAUSTED&fontSize=76&fontColor=FFFFFF&animation=fadeIn&fontAlignY=38&desc=⚡%20Rebuilt.%20Refined.%20Reloaded.%20⚡&descSize=22&descAlignY=62&descColor=FFD700" width="100%"/><br><br>
+<div align="center"><img src="https://capsule-render.vercel.app/api?type=waving&color=0:0D001A,50:7000FF,100:00D9FF&height=280&section=header&text=SAAN%20EXHAUSTED&fontSize=65&fontColor=FFFFFF&animation=fadeIn&fontAlignY=38&desc=⚡%20REBORN.%20REFINED.%20REDEFINED.%20⚡&descSize=18&descAlignY=62&descColor=FFD700" width="100%"/><br><br>
 
-<img src="https://i.imgur.com/3JyONMI.jpeg" width="1942" height="809" alt="SAAN EXHAUSTED"><br><br>
+<img src="https://i.imgur.com/bCuiBvy.jpeg" width="100%" alt="SAAN EXHAUSTED — Official Project Image"/><br><br>
 
-<img src="https://readme-typing-svg.demolab.com?font=Orbitron&weight=800&size=32&duration=2800&pause=600&color=9D4EDD&center=true&vCenter=true&width=850&lines=🔥+SAAN EXHAUSTED;⚡+Next-Generation+Messenger+Bot;💎+Premium+Automation+System;🚀+Fast+%7C+Stable+%7C+Powerful;🛡️+Built+For+Performance" alt="Typing Animation"><br><br>
+<img src="https://readme-typing-svg.demolab.com?font=Orbitron&weight=800&size=30&duration=2800&pause=600&color=9D4EDD&center=true&vCenter=true&width=850&lines=🔥+SAAN+EXHAUSTED;⚡+Premium+Messenger+Bot;💎+Powerful+Automation+System;🚀+Fast+%7C+Smart+%7C+Customizable;🛡️+Engineered+With+Passion" alt="Typing Animation"/><br><br>
 
-<img src="https://komarev.com/ghpvc/?username=Saan-Irl&label=PROFILE+VIEWS&color=7000FF&style=for-the-badge&abbreviated=true" alt="Profile Views"><br><br>
+<a href="https://github.com/7383739393837636363/Enyo">
+<img src="https://img.shields.io/github/stars/7383739393837636363/Enyo?style=for-the-badge&logo=github&label=STARS&color=7000FF" alt="GitHub Stars"/>
+</a>
+<a href="https://github.com/7383739393837636363/Enyo/forks">
+<img src="https://img.shields.io/github/forks/7383739393837636363/Enyo?style=for-the-badge&logo=github&label=FORKS&color=00D9FF" alt="GitHub Forks"/>
+</a>
+<a href="https://github.com/7383739393837636363/Enyo">
+<img src="https://img.shields.io/github/last-commit/7383739393837636363/Enyo?style=for-the-badge&logo=github&label=LAST%20UPDATE&color=FFD700" alt="Last Commit"/>
+</a>
+<a href="https://github.com/7383739393837636363/Enyo">
+<img src="https://img.shields.io/badge/PROJECT-SAAN%20EXHAUSTED-7000FF?style=for-the-badge&logo=github&logoColor=white" alt="Project Name"/>
+</a><br><br>
 
-<a href="https://github.com/Saan-Irl/Enyo">
-<img src="https://img.shields.io/github/stars/Saan-Irl/Enyo?style=for-the-badge&logo=github&label=STARS&color=7000FF" alt="Stars">
-</a><a href="https://github.com/Saan-Irl/Enyo/network/members">
-<img src="https://img.shields.io/github/forks/Saan-Irl/Enyo?style=for-the-badge&logo=github&label=FORKS&color=00D9FF" alt="Forks">
-</a><a href="https://github.com/Saan-Irl/Enyo">
-<img src="https://img.shields.io/github/watchers/Saan-Irl/Enyo?style=for-the-badge&logo=github&label=WATCHERS&color=9D4EDD" alt="Watchers">
-</a><a href="https://github.com/Saan-Irl/Enyo">
-<img src="https://img.shields.io/github/last-commit/Saan-Irl/Enyo?style=for-the-badge&logo=github&label=LAST%20UPDATE&color=FFD700" alt="Last Commit">
-</a><a href="https://github.com/Saan-Irl/Enyo/blob/main/LICENSE">
-<img src="https://img.shields.io/badge/LICENSE-MIT-FFD700?style=for-the-badge&logo=opensourceinitiative&logoColor=white" alt="License">
-</a></div>---
+𝐒𝐀𝐀𝐍 𝐄𝐗𝐇𝐀𝐔𝐒𝐓𝐄𝐃
 
-<div align="center">🐐 SAAN EXHAUSTED
+Next-Generation Messenger Automation
 
-"Next-Generation Facebook Messenger Automation"
-
-Powerful • Modular • Fast • Customizable
+POWERFUL • MODULAR • FAST • CUSTOMIZABLE
 
 </div>---
 
-✨ About
+💜 About The Project
 
-SAAN EXHAUSTED is a powerful and modular Facebook Messenger automation bot designed for performance, flexibility and easy customization.
+SAAN EXHAUSTED is a customized Messenger bot project focused on automation, modular commands, user interactions and a distinctive developer identity.
 
-The project provides a command-based architecture with support for automation, AI, media processing, user management, group management and premium features.
+Designed with a premium aesthetic and a flexible development approach, this project can be customized according to its available commands, dependencies, APIs and configuration.
+
+This repository represents the project development and customization associated with 𝐒𝐈𝐀𝐌 𝐀𝐇𝐌𝐄𝐃 𝐒𝐀𝐀𝐍.
 
 ---
 
@@ -40,174 +41,205 @@ The project provides a command-based architecture with support for automation, A
 <tr>
 <td width="50%" valign="top">🤖 Automation
 
-- ⚡ Fast command execution
-- 🧩 Modular command system
-- 🔄 Event-based architecture
-- 📡 Real-time Messenger events
-- ⏱️ Command cooldown
-- 🛠️ Custom event handlers
-
-</td><td width="50%" valign="top">👑 Premium
-
-- 💎 Premium membership
-- ⭐ VIP commands
-- 🔐 Role-based permissions
-- ⏳ Membership expiration
-- 👤 User management
-- 💬 Thread management
+- ⚡ Command-based interactions
+- 🧩 Modular command architecture
+- 🔄 Event-driven functionality
+- 🛠️ Customizable commands
+- ⏱️ Command cooldown support
+- ⚙️ Configurable bot settings
 
 </td>
-</tr><tr>
-<td width="50%" valign="top">🧠 AI
+<td width="50%" valign="top">👑 User Management
 
-- 🎨 AI image generation
-- 🎬 AI video generation
-- ✨ AI-powered commands
-- 🪄 Image transformation
-- 📝 Prompt processing
-- 🔌 External API integration
+- 👤 User-related commands
+- 💬 Messenger thread interactions
+- 🔐 Permission-based functionality
+- ⭐ Role-based command access
+- ⚙️ Custom configuration
+- 🧩 Extensible command system
 
-</td><td width="50%" valign="top">📦 Media
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">📦 Media & Utilities
 
-- 🖼️ Image processing
+- 🖼️ Media-related commands
 - 🎵 Audio utilities
-- 🎬 Video utilities
-- 📥 Media downloading
-- 📤 File uploading
+- 🎬 Video-related functionality
 - 🔗 URL processing
+- 📥 Download commands where supported
+- 🛠️ Utility commands
 
 </td>
-</tr><tr>
-<td width="50%" valign="top">🛡️ Security
+<td width="50%" valign="top">⚡ Development
 
-- 🔒 Permission system
-- 👑 Admin controls
-- 🚫 Spam protection
-- ⚠️ Error handling
-- 🧹 Automatic cleanup
-- ⚙️ Configurable restrictions
-
-</td><td width="50%" valign="top">⚡ Performance
-
-- 🚀 Lightweight architecture
-- 🔥 Optimized command loading
-- 📦 Modular dependencies
-- 🔄 Automatic recovery
-- 💾 Efficient data handling
-- 🧩 Easy extensibility
+- 📁 Organized project structure
+- 🔧 Configurable environment
+- 📦 npm dependency management
+- 🛡️ Error-handling capabilities
+- 🔄 Maintainable codebase
+- 🚀 Customization potential
 
 </td>
 </tr>
-</table>---
-
-
-### 🧠 Smart Role System
-Five clean permission tiers, checked in strict priority order.
-
-| Role | Level | Source |
-|---|:---:|---|
-| Developer | **4** | `devUsers` |
-| Premium | **3** | `premiumUsers` |
-| Bot Admin | **2** | `adminBot` |
-| Group Admin | **1** | thread's own admin list |
-| Member | **0** | default |
-
-</td>
-</tr>
-</table>
+</table>«Note: The actual features depend on the implementation available in this repository, installed dependencies and required configuration.»
 
 ---
 
+🧠 Smart Role System
+
+If implemented by the project, a role-based permission system can separate users according to their access levels.
+
+Role| Level| Purpose
+Developer| 4| Highest-level project permissions
+Premium| 3| Premium command access
+Bot Admin| 2| Bot administration
+Group Admin| 1| Group management
+Member| 0| Standard user access
+
+The table describes a possible permission structure. Actual role names and levels depend on the source code.
+
+---
 
 🎨 Project Identity
 
-<div align="center">| 
-🐐 Project| SAAN EXHAUSTED
-👨‍💻 Developer| SIAM AHMED SAAN
-🟢 Node.js| 22.x
-📜 License| MIT
+<div align="center">Information| Details
+Project Name| 𝐒𝐀𝐀𝐍 𝐄𝐗𝐇𝐀𝐔𝐒𝐓𝐄𝐃
+Repository| "Enyo"
+Developer| 𝐒𝐈𝐀𝐌 𝐀𝐇𝐌𝐄𝐃 𝐒𝐀𝐀𝐍
+GitHub Owner| "7383739393837636363"
+Main Language| JavaScript, if applicable
+Runtime| Node.js, if supported
+Package Manager| npm
+License| See the repository's "LICENSE" file
 
 </div>---
 
 🧩 Command Structure
 
-commands/
-├── admin/
-├── ai/
-├── fun/
-├── media/
-├── system/
-├── utility/
-└── owner/
+The command structure depends on the framework used by the project.
 
-Each command can define:
+A typical modular command system may contain:
 
-Name
-Aliases
-Version
-Author
-Role
-Cooldown
-Description
-Guide
-onStart
-onReply
-onChat
+Enyo/
+├── commands/
+│   ├── admin/
+│   ├── ai/
+│   ├── fun/
+│   ├── media/
+│   ├── system/
+│   ├── utility/
+│   └── owner/
+├── scripts/
+├── package.json
+├── README.md
+└── index.js
+
+Important: This is an illustrative example, not a verified listing of the actual repository files.
+
+A command module may support:
+
+- Command name and aliases
+- Version and author information
+- Permission levels
+- Cooldown settings
+- Command descriptions
+- Execution handlers
+- Reply and chat event handlers, where supported
 
 ---
 
 📥 Installation
 
-git clone https://github.com/Saan-Irl/Enyo.git
+1. Clone Repository
+
+git clone https://github.com/7383739393837636363/Enyo.git
+
+2. Open Project Directory
+
 cd Enyo
+
+3. Install Dependencies
+
 npm install
+
+4. Configure The Project
+
+Review the project's documentation, configuration files and environment variables before starting it.
 
 ---
 
-▶️ Start
+▶️ Start The Bot
+
+The correct startup command depends on the project's entry point and "package.json".
+
+If "index.js" is the entry point:
 
 node index.js
+
+If "package.json" defines a start script:
+
+npm start
+
+Use only the startup command supported by the actual source code.
 
 ---
 
 📋 Requirements
 
-Requirement| Version
-🟢 Node.js| 20.x
-📦 npm| 9+
-🔧 Git| Latest
-💬 Messenger Account| Required
+Requirement| Details
+Node.js| Compatible version required by the project
+npm| Compatible package manager
+Git| Required for cloning and version control
+Internet| Required for online APIs and Messenger connectivity
+Configuration| Required settings and credentials, where applicable
+
+Check "package.json" for the supported Node.js version and dependencies.
 
 ---
 
-⚙️ Configuration
+⚙️ Configuration Guide
 
-Configure the required project settings and account information according to the files included in the repository.
+Before running the project:
 
-After configuration:
+1. Inspect "package.json".
+2. Identify the correct entry point.
+3. Review the included configuration files.
+4. Set the required environment variables.
+5. Install all required dependencies.
+6. Configure supported APIs and account/session information.
+7. Start the project using the documented command.
 
-npm install
-node index.js
+🔐 Security Notice
+
+Never commit private session cookies, passwords, API keys, access tokens or other confidential credentials to a public repository.
+
+Use environment variables or an appropriate private configuration method whenever supported.
 
 ---
 
 📊 GitHub Statistics
 
-<div align="center"><img src="https://github-readme-stats.vercel.app/api?username=Saan-Irl&show_icons=true&theme=tokyonight&hide_border=true&bg_color=00000000&title_color=9D4EDD&icon_color=00D9FF&text_color=FFFFFF" width="49%"><img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Saan-Irl&layout=compact&theme=tokyonight&hide_border=true&bg_color=00000000&title_color=9D4EDD&text_color=FFFFFF" width="49%"><br><br>
+<div align="center"><img src="https://github-readme-stats.vercel.app/api?username=7383739393837636363&show_icons=true&theme=tokyonight&hide_border=true&bg_color=00000000&title_color=9D4EDD&icon_color=00D9FF&text_color=FFFFFF" width="49%" alt="GitHub Statistics"/><img src="https://github-readme-stats.vercel.app/api/top-langs/?username=7383739393837636363&layout=compact&theme=tokyonight&hide_border=true&bg_color=00000000&title_color=9D4EDD&text_color=FFFFFF" width="49%" alt="Most Used Languages"/><br><br>
 
-<img src="https://github-readme-streak-stats.herokuapp.com/?user=Saan-Irl&theme=tokyonight&hide_border=true&background=00000000&ring=7000FF&fire=FFD700&currStreakLabel=00D9FF" width="70%"></div>---
+<img src="https://github-readme-streak-stats.herokuapp.com/?user=7383739393837636363&theme=tokyonight&hide_border=true&background=00000000&ring=7000FF&fire=FFD700&currStreakLabel=00D9FF" width="70%" alt="GitHub Contribution Streak"/></div>---
 
-👀 Visitor Counter
+👀 Profile Views
 
-<div align="center"><img src="https://komarev.com/ghpvc/?username=Saan-Irl&label=GOAT-BOT+VISITORS&color=7000FF&style=for-the-badge&abbreviated=true" alt="GOAT-BOT Visitors"></div>---
+<div align="center"><img src="https://komarev.com/ghpvc/?username=7383739393837636363&label=SAAN%20EXHAUSTED%20VISITORS&color=7000FF&style=for-the-badge&abbreviated=true" alt="Profile Views"/></div>---
 
-🌟 Project Goals
+🌌 Project Goals
 
-<div align="center">⚡ Maximum Performance
-🧩 Clean Architecture
-🔥 Powerful Automation
-💎 Premium Experience
-🛡️ Reliable Security
+<div align="center">⚡ Performance & Reliability
+
+🧩 Clean & Maintainable Code
+
+🔥 Flexible Command Architecture
+
+💎 Premium User Experience
+
+🛡️ Responsible Configuration
+
 🚀 Continuous Development
 
 </div>---
@@ -216,44 +248,50 @@ node index.js
 
 Contributions, suggestions and improvements are welcome.
 
-Fork
-  ↓
-Create Branch
-  ↓
-Make Changes
-  ↓
-Commit
-  ↓
-Push
-  ↓
-Pull Request
+Contribution Workflow
+
+1. Fork the repository.
+2. Create a new branch.
+3. Make your changes.
+4. Test your changes.
+5. Commit your work.
+6. Push your branch.
+7. Open a pull request.
+
+Please respect the original source code, third-party licenses and applicable attribution requirements.
 
 ---
 
-⭐ Support
+⭐ Support The Project
 
-<div align="center">If you like SAAN EXHAUSTED, consider supporting the project.
+<div align="center">If you appreciate this project:
 
 ⭐ Star the repository
 
-🍴 Fork the repository
+🍴 Fork the project
 
 🐛 Report bugs
 
-💡 Suggest features
+💡 Suggest improvements
 
-🤝 Contribute
+🤝 Contribute responsibly
 
-</div>---
+<br><a href="https://github.com/7383739393837636363/Enyo">
+<img src="https://img.shields.io/badge/EXPLORE-ENYO-7000FF?style=for-the-badge&logo=github&logoColor=white" alt="Explore Repository"/>
+</a></div>---
 
-<div align="center">💜 SAAN EXHAUSTED
-
-"SIAM AHMED SAAN"
+<div align="center">💜 𝐒𝐈𝐀𝐌 𝐀𝐇𝐌𝐄𝐃 𝐒𝐀𝐀𝐍
 
 Developer • Builder • Creator
 
-<br><img src="https://readme-typing-svg.demolab.com?font=Orbitron&weight=700&size=22&duration=3000&pause=800&color=7000FF&center=true&vCenter=true&width=650&lines=BUILDING+THE+FUTURE;CODE+%7C+AI+%7C+AUTOMATION;SAAN+EXHAUSTED" alt="SAAN EXHAUSTED"><br><br>
+Turning ideas into code, one project at a time.
 
-<a href="https://github.com/Saan-Irl/Enyo">
-<img src="https://img.shields.io/badge/GOAT--BOT--UPDATED-7000FF?style=for-the-badge&logo=github&logoColor=white" alt="SAAN EXHAUSTED">
-</a></div><br><div align="center"><img src="https://capsule-render.vercel.app/api?type=waving&color=0:00D9FF,50:7000FF,100:0D001A&height=140&section=footer" width="100%"></div>
+<br><img src="https://readme-typing-svg.demolab.com?font=Orbitron&weight=700&size=22&duration=3000&pause=800&color=7000FF&center=true&vCenter=true&width=650&lines=BUILDING+WITH+PURPOSE;CODE+%7C+CREATIVITY+%7C+INNOVATION;SAAN+EXHAUSTED" alt="Developer Animation"/><br><br>
+
+<a href="https://github.com/7383739393837636363/Enyo">
+<img src="https://img.shields.io/badge/SAAN--EXHAUSTED-7000FF?style=for-the-badge&logo=github&logoColor=white" alt="SAAN EXHAUSTED"/>
+</a><br><br>
+
+Thank you for visiting my repository.
+
+<br><img src="https://capsule-render.vercel.app/api?type=waving&color=0:00D9FF,50:7000FF,100:0D001A&height=140&section=footer" width="100%" alt="Footer"/></div>
