@@ -18,7 +18,16 @@ module.exports = async function (usersData, threadsData, event) {
 				if (global.db.allThreadData.some(t => t.threadID == threadID))
 					return;
 
-				const threadData = await threadsData.create(threadID);
+				// E2EE / inbox threads are not normal threads: api.getThreadInfo fails for them,
+				// so build minimal DM info ourselves instead of asking Facebook.
+				const dmInfo = (event.isE2EE === true || event.isGroup === false) ? {
+					threadName: "Inbox " + threadID,
+					userInfo: [{ id: String(threadID), name: "Unknown", gender: 0 }],
+					adminIDs: [],
+					nicknames: {},
+					threadType: 1
+				} : undefined;
+				const threadData = await threadsData.create(threadID, dmInfo);
 				log.info("DATABASE", `New Thread: ${threadID} | ${threadData.threadName} | ${config.database.type}`);
 			}
 			else {
@@ -42,7 +51,10 @@ module.exports = async function (usersData, threadsData, event) {
 				if (db.allUserData.some(u => u.userID == senderID))
 					return;
 
-				const userData = await usersData.create(senderID);
+				const userData = await usersData.create(senderID).catch(async e => {
+					if (event.isE2EE === true) return await usersData.create(senderID, { name: "Unknown" });
+					throw e;
+				});
 				log.info("DATABASE", `New User: ${senderID} | ${userData.name} | ${config.database.type}`);
 			}
 			else {
