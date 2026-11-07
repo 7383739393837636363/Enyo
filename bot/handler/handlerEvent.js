@@ -223,12 +223,19 @@ module.exports = function (api, threadModel, userModel, dashBoardModel, globalMo
         let userData = global.db.allUserData.find(u => u.userID == senderID);
 
         if (!userData && !isNaN(senderID))
-            userData = await usersData.create(senderID);
+            userData = await usersData.create(senderID).catch(async () => await usersData.create(senderID, { name: "Unknown" }));
 
         if (!threadData && !isNaN(threadID)) {
             if (global.temp.createThreadDataError.includes(threadID))
                 return;
-            threadData = await threadsData.create(threadID);
+            const dmInfo = (event.isE2EE === true || isGroup === false) ? {
+                threadName: "Inbox " + threadID,
+                userInfo: [{ id: String(threadID), name: "Unknown", gender: 0 }],
+                adminIDs: [],
+                nicknames: {},
+                threadType: 1
+            } : undefined;
+            threadData = await threadsData.create(threadID, dmInfo);
             global.db.receivedTheFirstMessage[threadID] = true;
         }
         else {
@@ -237,7 +244,11 @@ module.exports = function (api, threadModel, userModel, dashBoardModel, globalMo
                 && !global.db.receivedTheFirstMessage[threadID]
             ) {
                 global.db.receivedTheFirstMessage[threadID] = true;
-                await threadsData.refreshInfo(threadID);
+                // skip for inbox/E2EE: getThreadInfo throws there and would kill the whole handler
+                if (!(event.isE2EE === true || isGroup === false)) {
+                    try { await threadsData.refreshInfo(threadID); }
+                    catch (e) { log.err("handlerEvent", "refreshInfo failed: " + (e && e.message || e)); }
+                }
             }
         }
 
