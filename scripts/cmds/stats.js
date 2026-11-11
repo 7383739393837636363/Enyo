@@ -2,85 +2,65 @@ const fs = require("fs");
 const os = require("os");
 const moment = require("moment-timezone");
 
+function sendMsg(api, text, threadID) {
+  return new Promise((resolve) => {
+    api.sendMessage(text, threadID, (err, info) => {
+      resolve(info);
+    });
+  });
+}
+
+function editMsg(api, text, messageID) {
+  return new Promise((resolve) => {
+    if (typeof api.editMessage !== "function") return resolve(false);
+    api.editMessage(text, messageID, (err) => {
+      resolve(!err);
+    });
+  });
+}
+
 module.exports = {
   config: {
     name: "stats",
     aliases: ["botstats"],
-    version: "3.0",
+    version: "4.0",
     author: "Saan",
     role: 0,
-    shortDescription: "Shows total users, groups, uptime and system stats",
-    longDescription: "Fetches total users, groups, uptime, and system information.",
+    shortDescription: "Shows detailed bot and system statistics",
     category: "SYSTEM"
   },
 
-  onStart: async function({ api, event, args, usersData, threadsData, Threads }) {
+  onStart: async function ({ api, event, usersData, threadsData }) {
     try {
-      const { threadID, messageID } = event;
+      const { threadID } = event;
 
-      const loadingMsg = await api.sendMessage(
-        `╭───〔 📊 𝗟𝗢𝗔𝗗𝗜𝗡𝗚 〕───╮\n│\n│ ░░░░░░░░░░ 0%\n│\n╰─────────────────────`,
-        threadID
-      );
+      const loadingMsg = await sendMsg(api, `╭───〔 📊 𝗟𝗢𝗔𝗗𝗜𝗡𝗚 〕───╮\n│\n│ ░░░░░░░░░░ 0%\n│\n╰─────────────────────`, threadID);
+      const loadingID = loadingMsg ? loadingMsg.messageID : null;
 
-      const steps = [
-        { percent: 20, filled: 2 },
-        { percent: 50, filled: 5 },
-        { percent: 80, filled: 8 },
-        { percent: 100, filled: 10 }
-      ];
-
-      for (const step of steps) {
-        const bar = "█".repeat(step.filled) + "░".repeat(10 - step.filled);
-        await api.editMessage(
-          `╭───〔 📊 𝗟𝗢𝗔𝗗𝗜𝗡𝗚 〕───╮\n│\n│ ${bar} ${step.percent}%\n│\n╰─────────────────────`,
-          loadingMsg.messageID
-        );
-        await new Promise(resolve => setTimeout(resolve, 400));
-      }
-
-      let usersCount = 0;
-      if (usersData && typeof usersData.getAll === "function") {
-        const allUsers = await usersData.getAll();
-        if (Array.isArray(allUsers)) usersCount = allUsers.length;
-        else if (allUsers && typeof allUsers === "object") usersCount = Object.keys(allUsers).length;
-      } else if (global.users && typeof global.users === "object") {
-        usersCount = Object.keys(global.users).length;
-      } else {
-        try {
-          const raw = fs.readFileSync("./data/users.json", "utf8");
-          const parsed = JSON.parse(raw);
-          usersCount = Array.isArray(parsed) ? parsed.length : Object.keys(parsed).length;
-        } catch (e) {
-          usersCount = 0;
+      if (loadingID) {
+        const steps = [20, 50, 80, 100];
+        for (const p of steps) {
+          const filled = p / 10;
+          const bar = "█".repeat(filled) + "░".repeat(10 - filled);
+          await editMsg(api, `╭───〔 📊 𝗟𝗢𝗔𝗗𝗜𝗡𝗚 〕───╮\n│\n│ ${bar} ${p}%\n│\n╰─────────────────────`, loadingID);
+          await new Promise(resolve => setTimeout(resolve, 250));
         }
       }
 
+      let usersCount = 0;
+      let usersSizeMB = "0.00";
+      if (usersData && typeof usersData.getAll === "function") {
+        const allUsers = await usersData.getAll();
+        usersCount = Array.isArray(allUsers) ? allUsers.length : Object.keys(allUsers || {}).length;
+        usersSizeMB = (Buffer.byteLength(JSON.stringify(allUsers || {})) / 1024 / 1024).toFixed(2);
+      }
+
       let groupsCount = 0;
+      let groupsSizeMB = "0.00";
       if (threadsData && typeof threadsData.getAll === "function") {
         const allThreads = await threadsData.getAll();
-        if (Array.isArray(allThreads)) groupsCount = allThreads.length;
-        else if (allThreads && typeof allThreads === "object") groupsCount = Object.keys(allThreads).length;
-      } else if (Threads && typeof Threads.getAll === "function") {
-        const all = await Threads.getAll();
-        groupsCount = Array.isArray(all) ? all.length : Object.keys(all || {}).length;
-      } else if (api && typeof api.getThreadList === "function") {
-        try {
-          const list = await new Promise((resolve, reject) => {
-            api.getThreadList(500, null, (err, data) => {
-              if (err) return reject(err);
-              resolve(data || []);
-            });
-          });
-          groupsCount = Array.isArray(list) ? list.length : 0;
-        } catch (e) {}
-      }
-      if (groupsCount === 0) {
-        try {
-          const raw = fs.readFileSync("./data/threads.json", "utf8");
-          const parsed = JSON.parse(raw);
-          groupsCount = Array.isArray(parsed) ? parsed.length : Object.keys(parsed || {}).length;
-        } catch (e) {}
+        groupsCount = Array.isArray(allThreads) ? allThreads.length : Object.keys(allThreads || {}).length;
+        groupsSizeMB = (Buffer.byteLength(JSON.stringify(allThreads || {})) / 1024 / 1024).toFixed(2);
       }
 
       const uptime = process.uptime();
@@ -96,32 +76,63 @@ module.exports = {
       const memPercentage = ((usedMemory / totalMemory) * 100).toFixed(1);
       const totalMemoryGB = (totalMemory / 1024 / 1024 / 1024).toFixed(2);
       const usedMemoryGB = (usedMemory / 1024 / 1024 / 1024).toFixed(2);
+      const memBar = "█".repeat(Math.round((usedMemory / totalMemory) * 10)) + "░".repeat(10 - Math.round((usedMemory / totalMemory) * 10));
 
-      const cpuModel = os.cpus()[0]?.model?.split('@')[0]?.trim() || "Unknown";
+      const cpus = os.cpus();
+      const cpuModel = cpus[0]?.model?.split('@')[0]?.trim() || "Unknown";
+      const cpuCores = cpus.length;
       const cpuLoad = os.loadavg()[0].toFixed(2);
 
-      const pingStart = Date.now();
-      await api.sendMessage("", threadID);
-      const pingEnd = Date.now();
-      const ping = pingEnd - pingStart;
-
-      const timeBD = moment().tz("Asia/Dhaka").format("DD MMM YYYY, hh:mm:ss A");
-      const nodeVersion = process.version;
       const memoryUsage = process.memoryUsage();
       const heapUsedMB = (memoryUsage.heapUsed / 1024 / 1024).toFixed(2);
       const rssMB = (memoryUsage.rss / 1024 / 1024).toFixed(2);
 
-      const memBarFilled = Math.round((usedMemory / totalMemory) * 10);
-      const memBarEmpty = 10 - memBarFilled;
-      const memBar = "█".repeat(memBarFilled) + "░".repeat(memBarEmpty);
+      const ping = Date.now() - event.timestamp || 0;
 
-      const msg = `╭───〔 📊 𝗕𝗢𝗧 𝗦𝗧𝗔𝗧𝗦 〕───╮\n│\n│ 👤 Users        : ${usersCount}\n│ 👥 Groups       : ${groupsCount}\n│\n│ ⏱️ Uptime       : ${uptimeString}\n│ 🕒 Time         : ${timeBD}\n│\n│ 💾 RAM          : [${memBar}] ${memPercentage}%\n│ ${usedMemoryGB}GB / ${totalMemoryGB}GB\n│\n│ 🖥️ CPU         : ${cpuModel}\n│ ⚡ Load         : ${cpuLoad}%\n│\n│ 🏓 Ping         : ${ping}ms\n│ 📦 Node         : ${nodeVersion}\n│ 💻 Heap Used    : ${heapUsedMB}MB\n│ 📊 RSS          : ${rssMB}MB\n│\n╰─────────────────────`;
+      const timeBD = moment().tz("Asia/Dhaka").format("hh:mm:ss A");
+      const dateBD = moment().tz("Asia/Dhaka").format("DD MMM YYYY");
+      const platform = os.platform();
+      const arch = os.arch();
+      const nodeVersion = process.version;
 
-      return api.editMessage(msg, loadingMsg.messageID);
+      const msg = 
+`╭───〔 📊 𝗕𝗢𝗧 𝗦𝗧𝗔𝗧𝗦 〕───╮
+│
+│ 👤 𝗨𝘀𝗲𝗿𝘀      : ${usersCount}
+│ 👥 𝗚𝗿𝗼𝘂𝗽𝘀     : ${groupsCount}
+│ 💾 𝗨𝘀𝗲𝗿 𝗗𝗕    : ${usersSizeMB} MB
+│ 💾 𝗚𝗿𝗼𝘂𝗽 𝗗𝗕   : ${groupsSizeMB} MB
+│
+├──〔 ⏱️ 𝗨𝗣𝗧𝗜𝗠𝗘 〕──
+│ ⏳ 𝗕𝗼𝘁 𝗨𝗽𝘁𝗶𝗺𝗲  : ${uptimeString}
+│ 📅 𝗗𝗮𝘁𝗲       : ${dateBD}
+│ 🕒 𝗧𝗶𝗺𝗲       : ${timeBD}
+│ 🏓 𝗣𝗶𝗻𝗴       : ${ping}ms
+│
+├──〔 💻 𝗦𝗬𝗦𝗧𝗘𝗠 〕──
+│ 🖥️ 𝗢𝗦        : ${platform} (${arch})
+│ ⚙️ 𝗖𝗣𝗨       : ${cpuModel} (${cpuCores} cores)
+│ ⚡ 𝗟𝗼𝗮𝗱      : ${cpuLoad}%
+│ 📦 𝗡𝗼𝗱𝗲      : ${nodeVersion}
+│
+├──〔 🧠 𝗠𝗘𝗠𝗢𝗥𝗬 〕──
+│ 💾 𝗥𝗔𝗠       : [${memBar}] ${memPercentage}%
+│ 📊 𝗨𝘀𝗲𝗱      : ${usedMemoryGB}GB / ${totalMemoryGB}GB
+│ 🔋 𝗛𝗲𝗮𝗽      : ${heapUsedMB} MB
+│ 📈 𝗥𝗦𝗦       : ${rssMB} MB
+│
+╰─────────────────────`;
+
+      if (loadingID) {
+        const edited = await editMsg(api, msg, loadingID);
+        if (!edited) await sendMsg(api, msg, threadID);
+      } else {
+        await sendMsg(api, msg, threadID);
+      }
 
     } catch (error) {
       console.error("Stats command error:", error);
-      return api.sendMessage("❌ Error: Unable to fetch bot stats.", event.threadID, event.messageID);
+      return api.sendMessage("❌ Error: Unable to fetch bot stats.\n" + error.message, event.threadID, event.messageID);
     }
   }
 };
