@@ -10,7 +10,7 @@ module.exports = {
                 name: "actor",
                 aliases: ["actorgame"],
                 version: "1.7",
-                author: "Enyo Vengeance",
+                author: "Saan",
                 countDown: 10,
                 role: 0,
                 description: {
